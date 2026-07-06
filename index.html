@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Rovic</title>
+      <style>
+         body { max-width: 750px; margin: 40px auto; font-family: sans-serif; background: #1e1e2e; color: #cdd6f4; line-height: 1.6; padding: 0 20px; }
+         a { color: #89b4fa; text-decoration: none; border-bottom: 1px solid #89b4fa; }
+         a:hover { background: #89b4fa; color: #1e1e2e; }
+         nav { margin-bottom: 40px; display: -webkit-box; display: -ms-flexbox; display: flex; gap: 20px; }
+         h1, h2 { color: #cba6f7; margin-top: 1.5em; }
+         table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+         th, td { border: 1px solid #45475a; padding: 10px; text-align: left; }
+         th { background: #313244; }
+         ul, ol { padding-left: 20px; }
+         .bad { color: #f38ba8; }
+         .warn { color: #f9e2af; }
+         .good { color: #a6e3a1; }
+      </style>
+   </head>
+   <body>
+      <nav>
+         <a href="#pipeline">Pipeline</a>
+         <a href="#specs">Specs</a>
+         <a href="#privacy">Privacy</a>
+         <a href="https://discord.com/oauth2/authorize?client_id=1523413164107108462&permissions=93188&integration_type=0&scope=bot" style="margin-left: auto;" target="_blank">[+] Add Bot</a>
+      </nav>
+      <h1>Rovic</h1>
+      <p>Automatic real-time scam image detection for Discord. Watches every image, checks signatures, bans scammers. No false positives. No stored files.</p>
+      <h2 id="pipeline">Pipeline</h2>
+      <ol>
+         <li><strong>Ingest:</strong> Downloads raw bytes from Discord CDN to memory.</li>
+         <li><strong>Hash:</strong> DCT perceptual hash. Bytes freed instantly.</li>
+         <li><strong>Lookup:</strong> BK-Tree signature check.</li>
+         <li><strong>Execute:</strong> Instant ban or mod review queue.</li>
+      </ol>
+      <table>
+         <tr>
+            <th>Distance</th>
+            <th>Status</th>
+            <th>Action</th>
+         </tr>
+         <tr>
+            <td>&lt;= 5</td>
+            <td class="bad">Match</td>
+            <td>Deleted, user banned, 7d wipe.</td>
+         </tr>
+         <tr>
+            <td>6 - 15</td>
+            <td class="warn">Warn</td>
+            <td>Deleted, flagged for review.</td>
+         </tr>
+         <tr>
+            <td>&gt; 15</td>
+            <td class="good">Safe</td>
+            <td>Ignored. Zero false positives.</td>
+         </tr>
+      </table>
+      <h2 id="specs">Specs</h2>
+      <ul>
+         <li><strong>Dedupe:</strong> LRU MD5 skip. Nullifies spam wave costs.</li>
+         <li><strong>Resilience:</strong> Survives JPEG compress, rescale, screenshots.</li>
+         <li><strong>Sync:</strong> Redis Pub/Sub global updates.</li>
+      </ul>
+      <h2 id="privacy">Privacy</h2>
+      <ul>
+         <li class="good">[+] 64-bit hashes of confirmed scams in DB.</li>
+         <li class="bad">[-] NO images saved to disk.</li>
+         <li class="bad">[-] NO message content logged.</li>
+         <li class="bad">[-] NO analytics tracking.</li>
+      </ul>
+      <p style="margin-top: 50px; color: #6c7086; font-size: 0.8rem;">
+         Rovic &copy; 2026 Zycher.
+      </p>
+   </body>
+</html>
